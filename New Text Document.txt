@@ -1,0 +1,21 @@
+Pipeline {
+    agent any
+    stages {
+        stages ('Build') {
+            steps {
+                echo 'Building...'
+                echo 'Running $ {env.BUILD-ID} $ {env.BUILD-DISPLAY_NAME } on $ {env.NODE-NAME} and JOB $ {env.JOBNAME}'
+            }
+        }
+        stage ('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage ('Display') {
+            steps{
+                echo 'Deploying'
+            }
+        }
+    }
+}
